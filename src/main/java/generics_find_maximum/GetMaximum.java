@@ -10,8 +10,14 @@ public class GetMaximum <T extends Comparable<T>>{
         this.arr = arr.clone();
     }
 
+    void printMax(T maxElement){
+        System.out.println("Maximum of the given array is: " + maxElement);
+    }
+
     public T getMaximum(){
-        return GetMaximum.getMaximum(arr);
+        T maxElement = GetMaximum.getMaximum(arr);
+        printMax(maxElement);
+        return maxElement;
     }
 
     static <T extends Comparable<T>> T getMaximum(T[] arr){
