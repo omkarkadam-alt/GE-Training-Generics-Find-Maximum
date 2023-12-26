@@ -1,24 +1,23 @@
 package generics_find_maximum;
 
+import java.util.Arrays;
+
 public class GetMaximum <T extends Comparable<T>>{
 
-    T element1;
-    T element2;
-    T element3;
+    T[] arr;
 
-    GetMaximum(T element1, T element2, T element3){
-        this.element1 = element1;
-        this.element2 = element2;
-        this.element3 = element3;
+    GetMaximum(T[] arr){
+        this.arr = arr.clone();
     }
 
     public T getMaximum(){
-        return GetMaximum.getMaximum(element1, element2, element3);
+        return GetMaximum.getMaximum(arr);
     }
 
-    static <T extends Comparable<T>> T getMaximum(T element1, T element2, T element3){
+    static <T extends Comparable<T>> T getMaximum(T[] arr){
         
-        return (element1.compareTo(element2) > 0 ? (element1.compareTo(element3) > 0 ? element1: element3): (element2.compareTo(element3) > 0 ? element2: element3));
+        Arrays.sort(arr);
+        return arr[arr.length - 1];
     }
 
 }
